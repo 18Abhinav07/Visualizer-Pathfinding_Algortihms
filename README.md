@@ -1,30 +1,27 @@
-# React + TypeScript + Vite
+# Pathfinding Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a pathfinding visualizer that allows users to visualize various pathfinding algorithms in action. It provides an interactive interface where users can create obstacles, and watch as the algorithm finds the shortest path between them.
 
-Currently, two official plugins are available:
+## Packages Needed
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+To run this project, you will need the following packages:
 
-## Expanding the ESLint configuration
+❯ npm create vite@latest pathfinding-visualizer -- --template react-ts
+❯ npm install -D tailwindcss postcss autoprefixer
+❯ npx tailwindcss init -p
+❯ npm i
+❯ npm install react-icons
+❯ npm run dev
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Characteristics
+
+This pathfinding visualizer has the following characteristics:
+
+- Interactive Interface: Users can interact with the visualizer by creating obstacles, setting start and end points, and watching the algorithm in action.
+- Multiple Algorithms: The visualizer supports various pathfinding algorithms, such as Dijkstra's algorithm, A* algorithm, and Breadth-First Search.
+- Visualization: The visualizer provides a graphical representation of the algorithm's progress, allowing users to see how the path is being explored.
+- Customization: Users can customize the animation speed and algorithms, and other parameters to suit their preferences.
+
+
