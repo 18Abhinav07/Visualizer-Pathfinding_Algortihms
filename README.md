@@ -5,14 +5,14 @@ This project is a pathfinding visualizer that allows users to visualize various 
 ## Packages Needed
 
 To run this project, you will need the following packages:
-
+```sh
 -❯npm create vite@latest pathfinding-visualizer -- --template react-ts
 -❯ npm install -D tailwindcss postcss autoprefixer
 -❯ npx tailwindcss init -p
 -❯ npm i
 -❯ npm install react-icons
 -❯ npm run dev
-
+```
 
 ## Characteristics
 
