@@ -1,8 +1,8 @@
-import { GridType, TileType } from "./types";
-import { MAX_COLS, MAX_ROWS } from "./constants";
+import { GridType, SpeedType, TileType } from "./types";
+import { MAX_COLS, MAX_ROWS, SPEEDS, TILE_STYLE } from "./constants";
 
 const createRow = (row: number, startTile: TileType, endTile: TileType) => {
-    
+
     const currentRow = []
 
     for (let col = 0; col < MAX_COLS; col++) {
@@ -16,7 +16,7 @@ const createRow = (row: number, startTile: TileType, endTile: TileType) => {
             isTraversed: false,
             distance: Infinity,
             parent: null
-            
+
         })
     }
 
@@ -33,3 +33,59 @@ export const createGrid = (startTile: TileType, endTile: TileType) => {
     return grid;
 
 }
+
+export const checkIfStartOrEnd = (row: number, col: number) => {
+    return (row === 1 && col === 1) || (row === MAX_ROWS - 2 && col === MAX_COLS - 2)
+}
+
+export const createNewGrid = (grid: GridType, row: number, col: number) => {
+    const newGrid = grid.slice()
+    const newTile = {
+        ...newGrid[row][col],
+        isWall: !newGrid[row][col].isWall,
+    }
+
+    newGrid[row][col] = newTile
+    return newGrid;
+}
+
+export const isEqual = (a: TileType, b: TileType) => {
+    return a.row === b.row && a.col === b.col;
+}
+
+export const isRowColEqual = (row: number, col: number, tile: TileType) => {
+    return row === tile.row && col === tile.col;
+}
+
+export const sleep = (ms: number) => {
+    return new Promise(resolve => setTimeout(resolve, ms))
+}
+
+export const destroyTile = async (grid: GridType, row: number, col: number, speed: SpeedType) => {
+    grid[row][col].isWall = false;
+    document.getElementById(`${row}-${col}`)!.className= TILE_STYLE;
+
+    await sleep(20 * SPEEDS.find((s) => s.value === speed)!.value - 5);
+}
+
+export const getRandInt = (min: number, max: number) => {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min);
+};
+
+export const checkStack = (tile: TileType, stack: TileType[]) => {
+    for (let i = 0; i < stack.length; i++) {
+        if (isEqual(stack[i], tile)) return true;
+    }
+    return false;
+};
+
+export const dropFromQueue = (tile: TileType, queue: TileType[]) => {
+    for (let i = 0; i < queue.length; i++) {
+        if (isEqual(tile, queue[i])) {
+            queue.splice(i, 1);
+            break;
+        }
+    }
+};
