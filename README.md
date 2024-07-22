@@ -1,5 +1,11 @@
-# Pathfinding Visualizer
-#  [Deployed App](https://visualizer-pathfinding-algortihms-6sza3v12o.vercel.app/)
+## Pathfinding Visualizer
+### [Deployed App](https://visualizer-pathfinding-algortihms-6sza3v12o.vercel.app/)
+
+## Example:
+
+![Example](Maze.png)
+
+
 
 This project is a pathfinding visualizer that allows users to visualize various pathfinding algorithms in action. It provides an interactive interface where users can create obstacles, and watch as the algorithm finds the shortest path between them.
 
